@@ -1,5 +1,8 @@
 ### Autonity Node Operations by Validatrium
 
+![Autonity Node Operations](https://github.com/Validatrium/autonity-install-tool/blob/main/autonity-node-operation/1.jpg)
+
+
 In the world of blockchain technologies, setting up a validator node and the infrastructure for its hosting is a key step in ensuring the stable operation of the network and receiving rewards for participating in transaction validation.
 
 In this article, [Validatrium](https://validatrium.com/) Team will discuss the key steps to install a validator node and create the infrastructure for hosting it for you to be sure that choosing us is the best option.
