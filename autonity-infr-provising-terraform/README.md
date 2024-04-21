@@ -2,7 +2,7 @@
 
 - Use Terraform to provision virtual machines or containers on your preferred cloud provider (e.g., AWS, GCP, Azure).
 - Define your infrastructure components (e.g., VMs, networking, firewalls) in Terraform configuration files (*.tf).
-
+![Autonity Infrastructure Provisioning with Terraform](https://github.com/Validatrium/autonity-install-tool/blob/main/autonity-infr-provising-terraform/2.jpg)
 ### Deploying RPC Nodes for Autonity:
 
 - Set up your RPC nodes on the provisioned virtual machines or containers.
