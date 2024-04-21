@@ -24,4 +24,4 @@ Explore the process of generating cryptographic keys and wallets for various pur
 - This involves modifying the .autrc file to include the path to the tresure.key file.
 - It ensures that the node will use the tresure key for specific operations, such as delegation and receiving rewards.
 
-![Journey through key concepts for Autonity RPC node operations](https://github.com/Validatrium/autonity-install-tool/blob/main/autonity-rpc-node-operations/3.jpg)
+
