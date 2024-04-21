@@ -1,0 +1,32 @@
+version: "3"
+services:
+  autonity_rpc:
+    image: ghcr.io/autonity/autonity:latest
+    container_name: autonity_rpc
+    restart: always
+    ports:
+      - "31445:8545"
+      - "31446:8546"
+      - "31403:30304"
+      - "31403:30304/udp"
+      - "6060:6060" # PPROF
+      - "6064:6064" # PROMETHEUS
+    volumes:
+      - "./.data/autonity_node_rpc:/autonity-chaindata"
+    command: >
+      --datadir=/autonity-chaindata
+      --piccadilly 
+      --port=31404
+      --http
+      --http.addr=0.0.0.0
+      --http.api=aut,eth,net,txpool,web3,admin
+      --http.vhosts=*
+      --ws
+      --ws.addr=0.0.0.0
+      --ws.api=aut,eth,net,personal,txpool,web3,admin
+      --nat=extip:162.55.145.72
+      --metrics
+      --metrics.addr=0.0.0.0
+      --metrics.port=6064
+      --metrics.expensive
+      --pprof

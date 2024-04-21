@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autonity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: autonity
+  template:
+    metadata:
+      labels:
+        app: autonity
+    spec:
+      containers:
+      - name: autonity
+        image: ghcr.io/autonity/autonity:latest
+        ports:
+        - containerPort: 8545
+        - containerPort: 8546
+        - containerPort: 30303
+        - containerPort: 20203
+        - containerPort: 6060
+        args:
+        - "--datadir"
+        - "/autonity-chaindata"
+        - "--piccadilly"
+        - "--http"
+        - "--http.addr=0.0.0.0"
+        - "--http.api=aut,eth,net,txpool,web3,admin"
+        - "--http.vhosts=*"
+        - "--ws"
+        - "--ws.addr=0.0.0.0"
+        - "--ws.api=aut,eth,net,txpool,web3,admin"
+        - "--nat"
+        - "extip:<IP_ADDRESS>"
+        - "--consensus.nat"
+        - "<CONSENSUS_NAT>"
+        - "--consensus.port"
+        - "<CONSENSUS_PORT_NUMBER>"
+      volumes:
+      - name: autonity-chaindata
+        persistentVolumeClaim:
+          claimName: autonity-chaindata
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: autonity
+spec:
+  selector:
+    app: autonity
+  ports:
+  - protocol: TCP
+    port: 8545
+    targetPort: 8545
+  - protocol: TCP
+    port: 8546
+    targetPort: 8546
+  - protocol: TCP
+    port: 30303
+    targetPort: 30303
+  - protocol: TCP
+    port: 20203
+    targetPort: 20203
+  - protocol: TCP
+    port: 6060
+    targetPort: 6060
